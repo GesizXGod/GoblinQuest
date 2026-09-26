@@ -2,9 +2,10 @@ public class main {
 
     public static void main(String[] args) {
         Player player = new Player("Larry", 100);
-        Habit[] habit = {new Habit("Push-ups", 10),
-                         new Habit("reading books", 15),
-                         new Habit("Cleaning", 20)};
+         Habit[] habit = {new HardHabit("Push-ups"),
+                 new EasyHabit("ReadingBooks"),
+                 new EasyHabit("Cleaning") };
+
         for(int i = 0; i < habit.length; i++){
             System.out.println("goblin " + habit[i].getName() + " found! Reward: " + habit[i].getExpReward());
             habit[i].defeat();
