@@ -1,4 +1,4 @@
-public class Habit {
+public class Habit implements Rewardable{
     private String name;
     private int expReward;
     private boolean isDefeated;
