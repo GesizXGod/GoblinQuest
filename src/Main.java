@@ -24,9 +24,11 @@ public class Main {
             habitMap.put(h.getName(), h);
         }
         System.out.println("goblins in List: " + habits.size());
-        System.out.println("Персонаж: " + player.getName());
-        System.out.println("Персонаж жив: " + player.isAlive());
-        System.out.println("Всего опыта: " + player.getExp());
+        StringBuilder report = new StringBuilder();
+        report.append("Player: ").append(player.getName()).append("\n");
+        report.append("Player alive: ").append(player.isAlive()).append("\n");
+        report.append("Total experience: ").append(player.getExp());
+        System.out.println(report.toString());
         System.out.println(habitMap.containsKey("Push_Ups"));
         System.out.println(habitMap.containsKey("Yoga"));
         try {
