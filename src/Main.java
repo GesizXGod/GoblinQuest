@@ -43,6 +43,11 @@ public class Main {
         }finally {
             System.out.println("Проверка завершена");
         }
+        try{
+            Habit badhabit = new Habit("Playing", -21);
+        }catch (IllegalArgumentException e){
+            System.out.println("this catch was passed: " + e.getMessage());
+        }
 
     }
 
