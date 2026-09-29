@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
         Player player = new Player("Larry", 100);
          ArrayList<Habit> habits = new ArrayList<>();
-             habits.add(new HardHabit("Push-ups"));
+             habits.add(new HardHabit("Push_Ups"));
              habits.add(new EasyHabit("Reading"));
             habits.add(new EasyHabit("Cleaning"));
 
@@ -18,10 +19,18 @@ public class main {
         habits.add(new HardHabit("Yoga"));
         System.out.println("goblins in List: " + habits.size());
         habits.remove(0);
+        HashMap<String, Habit> habitMap = new HashMap<>();
+        for(Habit h : habits){
+            habitMap.put(h.getName(), h);
+        }
         System.out.println("goblins in List: " + habits.size());
         System.out.println("Персонаж: " + player.getName());
         System.out.println("Персонаж жив: " + player.isAlive());
         System.out.println("Всего опыта: " + player.getExp());
+        System.out.println(habitMap.containsKey("Push_Ups"));
+        System.out.println(habitMap.containsKey("Yoga"));
+        System.out.println(habitMap.get("Dragon"));
+        System.out.println(habitMap.get("Reading").getExpReward());
     }
 
 
