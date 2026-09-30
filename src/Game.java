@@ -17,6 +17,10 @@ public class Game {
     }
     public void defeatHabit(String name){
         Habit habit = habitMap.get(name);
+        if(habit == null){
+            System.out.println("Goblin name " + name + " wasn`t found");
+            return;
+        }
         habit.defeat();
         player.addExp(habit.getExpReward());
     }
