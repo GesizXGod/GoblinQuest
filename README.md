@@ -15,3 +15,4 @@
 
 ## Как запустить
 Открыть в IntelliJ IDEA, запустить `Main.java`
+Habits and player progress are stored in SQLite.
