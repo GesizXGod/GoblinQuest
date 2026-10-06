@@ -15,3 +15,4 @@
 
 ## Как запустить
 Открыть в IntelliJ IDEA, запустить `Main.java`
+Data is store in SQLite(goblinquest.db).
