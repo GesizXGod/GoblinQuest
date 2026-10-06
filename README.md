@@ -15,4 +15,4 @@
 
 ## Как запустить
 Открыть в IntelliJ IDEA, запустить `Main.java`
-Data is store in SQLite(goblinquest.db).
+Habits and player progress are stored in SQLite.
