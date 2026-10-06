@@ -21,5 +21,9 @@ public class Habit implements Rewardable {
         isDefeated = true;
     }
 
+    public boolean isDefeated() {
+        return isDefeated;
+    }
+
 }
 

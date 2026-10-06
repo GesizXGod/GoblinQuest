@@ -11,6 +11,14 @@ public class Game {
         this.habitMap = new HashMap<>();
 
     }
+    public Game(Player player) {
+        this.player = player;
+        this.habits = new ArrayList<>();
+        this.habitMap = new HashMap<>();
+    }
+    public Player getPlayer(){
+        return player;
+    }
     public void addHabit(Habit h){
         habits.add(h);
         habitMap.put(h.getName(), h);
@@ -21,8 +29,14 @@ public class Game {
             System.out.println("Goblin name " + name + " wasn`t found");
             return;
         }
+        if(habit.isDefeated()){
+            System.out.println(name + "is already defeated");
+            return;
+        }
         habit.defeat();
+        Database.updateHabit(habit);
         player.addExp(habit.getExpReward());
+        Database.updatePlayer(player);
     }
     public void printReport(){
         StringBuilder report = new StringBuilder();

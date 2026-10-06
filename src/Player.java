@@ -8,6 +8,11 @@ public class Player {
         this.hp = hp;
         this.exp = 0;
     }
+    public Player(String name, int hp, int exp) {
+        this.name = name;
+        this.hp = hp;
+        this.exp = exp;
+    }
 
     public String getName() {
         return name;
