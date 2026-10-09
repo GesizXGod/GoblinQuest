@@ -14,7 +14,9 @@ public class Database {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT NOT NULL UNIQUE, " +
                 "expReward INTEGER NOT NULL, " +
-                "isDefeated BOOLEAN NOT NULL)";
+                "isDefeated BOOLEAN NOT NULL, " +
+                "player_id INTEGER, " +
+                "FOREIGN KEY (player_id) REFERENCES players(id))";
 
         try (Connection conn = DriverManager.getConnection(URL);
              Statement stmt = conn.createStatement()) {
@@ -148,6 +150,25 @@ public class Database {
             System.out.println("Удалено привычек: " + rows);
         } catch (SQLException e) {
             System.out.println("Ошибка удаления привычки: " + e.getMessage());
+        }
+    }
+    public static void printHabitsWithPlayer() {
+        String sql = "SELECT habits.name, habits.expReward, players.name AS player " +
+                "FROM habits " +
+                "JOIN players ON habits.player_id = players.id";
+
+        try (Connection conn = DriverManager.getConnection(URL);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                String habitName = rs.getString("name");
+                int expReward = rs.getInt("expReward");
+                String playerName = rs.getString("player");
+                System.out.println(habitName + " | " + expReward + " | " + playerName);
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка JOIN: " + e.getMessage());
         }
     }
 }

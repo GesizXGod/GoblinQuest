@@ -2,8 +2,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        Database.createTable();
         Database.createPlayersTable();
+        Database.createTable();
         Player player = Database.loadPlayer("Larry");
         if (player == null) {
             player = new Player("Larry", 100);
@@ -20,7 +20,7 @@ public class Main {
 
         game.defeatHabit("Push_Ups");
         game.printReport();
-
+        Database.printHabitsWithPlayer();
 
 
     }
